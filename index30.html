@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-     <title>Пример 30</title>
-  </head>
-  <body>
-     <script>
-     var x = prompt('Введите число x: ');
-     var y = prompt('Введите число y: ');
-     var z =+ x;
-	 var z1 = 0;
-     i = 2;
-while (((i <= y) && (y > 0)) && (Number(parseInt(y))==false))
-      { 
-	  z = z * x;
-      i++;
-      alert ('Число ' + x + ' в степени ' + y +' равно ' + z);
-      break;
-      } if (y == 0) 
-           { 
-		   z = 1; 
-           alert ('Число ' + x + ' в степени ' + y +' равно ' + z);
-           } else if (y < 0)
-               {
-			   if (Number(parseInt(y))==false)
-     		      {
-				  alert ('Число ' + x + ' в степени ' + y +' равно ' +  Math.pow(x,y));
-			      } else 
-		              {
-					   var z = 1 / x;
-	                   var i = -2;
-	                   while (i >= y)
-	                      {
-						  z = z / x;
-                          i--;
-                          }
-	                      alert ('Вот блин Число ' + x + ' в степени ' + y +' равно ' + z);
-			           } 
-	            } else if (Number(x)==0)
-				    {
-					 alert('Число ' + x + ' в степени ' + y +' равно 0');
-			        } else if (!Number(x) || !Number(y))
-		                 {
-					      alert('Значения должны быть числовыми!');
-			             } else 
-					         {
-			                  alert ('Число ' + x + ' в степени ' + y +' равно ' +  Math.pow(x,y));
-		                     }
-     </script>
-  </body>
+    <head>
+        <title>Пример 30</title>
+    </head>
+    <body>
+        <script>
+             var x = prompt('Введите число x:');
+             var y = prompt('Введите число y:');
+	     var res = Number(Math.pow(x,y));
+	     //    var res = Math.pow(x,y);
+	     switch(true){
+	         case x > 0:
+		    if ( y == 0 ) {
+		      alert ('Число ' + x + ' в степени ' + y +' равно 1');}
+		    else {  
+		      alert ('Число ' + x + ' в степени ' + y +' равно ' + res);}
+		    break;
+		 case x < 0:
+		    if (Number.isNaN(res)){
+                      alert ('Ошибка ввода! Попробуйте еще раз!');}		
+                    else {
+                      alert ('Число ' + x + ' в степени ' + y +' равно ' + res);}					 
+		    break;
+		 case x == 0:
+		     if (y > 0){
+		         alert ('Число ' + x + ' в степени ' + y +' равно 0');}   
+		     else if (y < 0){
+		         alert ('Числа ' + x + ' в степени ' + y +' не существует! Учите алгебру! На 0 делить нельзя!');}
+		     else if (y == 0) {
+		         alert ('Выражение не имеет смысла!');}
+		     break;
+		 case isNaN(res):
+		 case  x == null :
+		 case  y == null :
+			 alert ('Введите числовые данные !');
+		     break;
+		  default:
+			 alert ('Число ' + x + ' в степени ' + y +' равно ' + res);
+			 }			 
+        </script>
+    </body>
 </html>
 
